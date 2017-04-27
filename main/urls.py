@@ -18,4 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('wrestle_coast.urls')),
+    url(r'^authenticate', include('login_and_registration.urls')),
 ]
