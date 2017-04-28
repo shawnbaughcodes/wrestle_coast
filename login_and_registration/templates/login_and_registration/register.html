@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Wrestle Coast</title>
+    </head>
+    <body>
+        <h1>Register Page</h1>
+        <a href="{%url 'home'%}"><button>Home</button></a>
+        <div class="register_container">
+            <form class="register" action="/registration" method="post">
+                {%csrf_token%}
+                First Name:
+                <input type="text" name="first_name" placeholder="First Name">
+                Last Name:
+                <input type="text" name="last_name" placeholder="Last Name">
+                Email:
+                <input type="text" name="email" placeholder="Email">
+                Password:
+                <input type="text" name="password" placeholder="Password">
+                Confirm Password:
+                <input type="text" name="confirm_password" placeholder="Confirm Password">
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </body>
+</html>
