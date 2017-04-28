@@ -81,7 +81,27 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+#  FILE STORAGE
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+# STATIC STORAGE
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+# AWS ACCCESS key
+AWS_ACCESS_KEY_ID = 'AKIAIG2B6BIMIKTQ3BUQ'
+#
+# AWS SECRET KEY
+AWS_SECRET_ACCESS_KEY = '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'
+#
+# AWS STORAGE BUCKET NAME
+AWS_STORAGE_BUCKET_NAME = 'wrestle-coast-bucket'
+#
+# AWS DEFAULT ACL
+AWS_DEFAULT_ACL = 'private'
+#
+# create bucket auto
+AWS_AUTO_CREATE_BUCKET = False
+# 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
