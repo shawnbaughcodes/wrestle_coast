@@ -4,6 +4,7 @@ from django.db import models
 from login_and_registration.models import User
 # Create your models here.
 
+
 class Videos(models.Model):
     url = models.CharField(max_length=500)
     name = models.CharField(max_length=255)
