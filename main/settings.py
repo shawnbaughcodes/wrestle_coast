@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from login_and_registration.models import Config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd2evgapr8o%ijtim5j9fktgxp_!m_*o1#ml!ig#)6uv(i9fnhu'
+
+SECRET_KEY = Config.objects.get(key='SECRET_KEY').value
+# 'd2evgapr8o%ijtim5j9fktgxp_!m_*o1#ml!ig#)6uv(i9fnhu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,26 +85,26 @@ DATABASES = {
     }
 }
 #  FILE STORAGE
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = Config.objects.get(key='DEFAULT_FILE_STORAGE').value
 #
 # STATIC STORAGE
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = Config.objects.get(key='STATICFILES_STORAGE').value
 #
 # AWS ACCCESS key
-AWS_ACCESS_KEY_ID = 'AKIAIG2B6BIMIKTQ3BUQ'
+AWS_ACCESS_KEY_ID = Config.objects.get(key='AWS_ACCESS_KEY_ID').value
 #
 # AWS SECRET KEY
-AWS_SECRET_ACCESS_KEY = 'zxYdu5iahbTO1hAXuUgT0cHpO/FldbtcZMJLajAo'
+AWS_SECRET_ACCESS_KEY = Config.objects.get(key='AWS_SECRET_ACCESS_KEY').value
 #
 # AWS STORAGE BUCKET NAME
-AWS_STORAGE_BUCKET_NAME = 'wrestle-coast-bucket'
+AWS_STORAGE_BUCKET_NAME = Config.objects.get(key='AWS_STORAGE_BUCKET_NAME').value
 #
 # AWS DEFAULT ACL
-AWS_DEFAULT_ACL = 'private'
+AWS_DEFAULT_ACL = Config.objects.get(key='AWS_DEFAULT_ACL').value
 #
 # create bucket auto
-AWS_AUTO_CREATE_BUCKET = False
-# 
+AWS_AUTO_CREATE_BUCKET = Config.objects.get(key='AWS_AUTO_CREATE_BUCKET').value
+#
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
