@@ -91,10 +91,17 @@ DEFAULT_FILE_STORAGE = Config.objects.get(key='DEFAULT_FILE_STORAGE').value
 STATICFILES_STORAGE = Config.objects.get(key='STATICFILES_STORAGE').value
 #
 # AWS ACCCESS key
+<<<<<<< HEAD
 AWS_ACCESS_KEY_ID = Config.objects.get(key='AWS_ACCESS_KEY_ID').value
 #
 # AWS SECRET KEY
 AWS_SECRET_ACCESS_KEY = Config.objects.get(key='AWS_SECRET_ACCESS_KEY').value
+=======
+AWS_ACCESS_KEY_ID = 
+#
+# AWS SECRET KEY
+AWS_SECRET_ACCESS_KEY = 
+>>>>>>> 3f88b812b0e335984ae82fdb7c4f2114384ed449
 #
 # AWS STORAGE BUCKET NAME
 AWS_STORAGE_BUCKET_NAME = Config.objects.get(key='AWS_STORAGE_BUCKET_NAME').value
