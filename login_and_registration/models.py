@@ -40,7 +40,7 @@ class UserManager(models.Manager):
     def login(self, request, user):
         if ('user_id' not in request.session):
             request.session['user_id'] = user.id
-
+# DATABASE MODELS
 class User(models.Model):
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)

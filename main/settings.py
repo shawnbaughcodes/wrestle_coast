@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = Config.objects.get(key='SECRET_KEY').value
-# 'd2evgapr8o%ijtim5j9fktgxp_!m_*o1#ml!ig#)6uv(i9fnhu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'login_and_registration',
     'browse',
+    's3direct',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -91,17 +91,10 @@ DEFAULT_FILE_STORAGE = Config.objects.get(key='DEFAULT_FILE_STORAGE').value
 STATICFILES_STORAGE = Config.objects.get(key='STATICFILES_STORAGE').value
 #
 # AWS ACCCESS key
-<<<<<<< HEAD
 AWS_ACCESS_KEY_ID = Config.objects.get(key='AWS_ACCESS_KEY_ID').value
 #
 # AWS SECRET KEY
 AWS_SECRET_ACCESS_KEY = Config.objects.get(key='AWS_SECRET_ACCESS_KEY').value
-=======
-AWS_ACCESS_KEY_ID = 
-#
-# AWS SECRET KEY
-AWS_SECRET_ACCESS_KEY = 
->>>>>>> 3f88b812b0e335984ae82fdb7c4f2114384ed449
 #
 # AWS STORAGE BUCKET NAME
 AWS_STORAGE_BUCKET_NAME = Config.objects.get(key='AWS_STORAGE_BUCKET_NAME').value
@@ -145,7 +138,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+S3DIRECT_REGION = 'us-west-1'
 
+
+
+
+S3DIRECT_DESTINATIONS = {
+    'example_destination': {
+        # REQUIRED
+        'key': "request.session['user_id']/images"
+    }
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
