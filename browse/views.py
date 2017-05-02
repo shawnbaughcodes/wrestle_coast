@@ -12,6 +12,9 @@ def index(request):
     }
     return render(request, 'browse/index.html', context)
 
+def admin(request):
+    return redirect('/company')
+
 def logout(request):
     request.session.clear()
     return redirect('/')

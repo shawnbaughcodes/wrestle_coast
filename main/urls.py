@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('login_and_registration.urls')),
     url(r'^browse/', include('browse.urls', namespace='browse')),
+    url(r'^company/', include('company.urls', namespace='company')),
 ]
