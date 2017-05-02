@@ -8,6 +8,9 @@
         <h1>Register Page</h1>
         <a href="{%url 'home'%}"><button>Home</button></a>
         <div class="register_container">
+            {%for message in messages%}
+            <p>{{message}}</p>
+            {%endfor%}
             <form class="register" action="/registration" method="post">
                 {%csrf_token%}
                 First Name:

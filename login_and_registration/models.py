@@ -7,7 +7,10 @@ class UserManager(models.Manager):
     # validate user function
     def register_validate(self, post):
             result = {'errors':[]}
-            if len(post['name']) < 3:
+            if len(post['first_name']) < 2:
+                result['errors'].append('Please enter your Full Name.')
+                return result
+            elif len(post['last_name']) < 2:
                 result['errors'].append('Please enter your Full Name.')
                 return result
             elif not re.search(r'\w+\@\w+\.\w+', post.get('email')):
@@ -24,7 +27,8 @@ class UserManager(models.Manager):
     # Create user function
     def create_user(self, post):
         user = User.objects.create(
-            name=post.get('name'),
+            first_name=post.get('first_name'),
+            last_name=post.get('last_name'),
             email=post.get('email'),
             password=bcrypt.hashpw(post.get('password').encode(), bcrypt.gensalt())
         )
@@ -42,10 +46,11 @@ class UserManager(models.Manager):
             request.session['user_id'] = user.id
 # DATABASE MODELS
 class User(models.Model):
-    name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=1000)
-    admin = models.BooleanField(default=True)
+    admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()

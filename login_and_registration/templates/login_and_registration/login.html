@@ -9,6 +9,7 @@
         <a href="{%url 'home'%}"><button>Home</button></a>
         <div class="login_container">
             <form class="login" action="/logging_in" method="post">
+                {% csrf_token %}
                 Email:
                 <input type="text" name="email" placeholder="Email">
                 Password:

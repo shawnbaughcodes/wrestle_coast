@@ -17,7 +17,7 @@ def logging_in(request):
     is_valid = User.objects.login_validate(request.POST)
     if is_valid['status'] == True:
         request.session['user_id'] = is_valid['user'].id
-        return
+        return redirect('/browse')
     else:
         if is_valid['status'] == False:
             messages.error(request, is_valid['message'])
@@ -31,8 +31,12 @@ def registration(request):
     if type(is_valid) == dict:
         for error in is_valid['errors']:
             messages.error(request, error)
-            return redirect('/register')
+        return redirect('/register')
     else:
         user = User.objects.create_user(request.POST)
         request.session['user_id'] = user.id
-        return redirect('SOMETHING')
+        return redirect('/browse')
+
+def logout(request):
+    request.session.clear()
+    return redirect('/')

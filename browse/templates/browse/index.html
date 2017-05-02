@@ -6,6 +6,12 @@
     </head>
     <body>
         <h1>Browse Vids Page</h1>
+        <h4>Welcome {{user.first_name}}</h4>
+        <a href="/browse/logout"><button>Logout</button></a>
+        <br>
+        {%if user.admin%}
+        <a href="/admin"><button>Add Videos</button></a>
+        {%endif%}
         <form class="search" action="/search" method="post">
             <input type="search" name="search" placeholder="Search">
         </form>
