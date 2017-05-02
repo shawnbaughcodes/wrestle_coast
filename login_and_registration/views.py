@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import *
+from .models import User
 from django.contrib import messages
 # Create your views here.
 def current_user(request):

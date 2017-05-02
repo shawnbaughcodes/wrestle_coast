@@ -8,23 +8,27 @@
         <h1>Company Management</h1><a href="/company/logout"><button>Logout</button></a>
         <a href="/browse"><button>Back</button></a>
         <div class="add_videos_form">
-            <form class="add_videos" action="/add_video" method="post">
-                Company Name:
+            <form enctype="multipart/form-data" class="add_videos" action="/company/add_video" method="post">
+                {% csrf_token %}
+                <!-- Company Name:
                 <input type="text" name="name">
                 Season:
-                <input type="text" name="name">
+                <input type="text" name="season_name">
                 Season Image:
-                <input type="file" name="image">
+                <input type="file" name="season_image">
                 Season Description:
-                <input type="text" name="description">
+                <input type="text" name="season_description"> -->
                 Episode Name:
-                <input type="text" name="name">
-                Episode Number:
-                <input type="text" name="number">
+                <input type="text" name="episode_name">
+                <!-- Episode Number:
+                <input type="text" name="episode_number">
                 Episode Image:
-                <input type="file" name="image">
-                Episode Description:
-                <input type="text" name="description">
+                <input type="file" name="episode_image"> -->
+                <!-- Episode Description:
+                <input type="text" name="episode_description"> -->
+                Episode File:
+                <input type="file" name="episode_file">
+                <input type="submit" value="Add">
 
             </form>
         </div>
